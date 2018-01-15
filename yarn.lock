@@ -853,7 +853,7 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
-base64-js@^1.0.2:
+base64-js@^1.0.2, base64-js@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.2.1.tgz#a91947da1f4a516ea38e5b4ec0ec3773675e0886"
 
@@ -5192,6 +5192,10 @@ tar@^2.0.0, tar@^2.2.1:
     block-stream "*"
     fstream "^1.0.2"
     inherits "2"
+
+text-encoder-lite@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/text-encoder-lite/-/text-encoder-lite-1.0.1.tgz#121c5ee74dfeb307037770ec75748c6824ac0518"
 
 text-table@~0.2.0:
   version "0.2.0"
