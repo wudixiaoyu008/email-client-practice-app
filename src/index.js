@@ -1,3 +1,7 @@
+/**
+ * @flow
+ */
+
 // example of generating HTML with js
 function renderSidebar() {
   const sidebarContents = `
@@ -15,7 +19,9 @@ function renderSidebar() {
       </li>
     </ul>
   `;
-  document.querySelector('.email-list-container').innerHTML = sidebarContents;
+
+  const container = document.querySelector('.email-list-container');
+  if (container != null) container.innerHTML = sidebarContents;
 }
 
 renderSidebar();

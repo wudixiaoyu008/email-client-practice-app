@@ -12,8 +12,8 @@ import type { URLSafeBase64 } from '../utility/Base64';
 // key used to access the table is valid. It prevents you from using an
 // arbitrary string; instead you can only use a value that you’ve gotten from
 // another location in the data store.
-export opaque type MessageKey = string;
-export opaque type ThreadKey = string;
+export type MessageKey = string;
+export type ThreadKey = string;
 
 // A label can be any string, but the following have internal meanings:
 // CATEGORY_FORUMS, CATEGORY_PERSONAL, CATEGORY_SOCIAL, IMPORTANT,
