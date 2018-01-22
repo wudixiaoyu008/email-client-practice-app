@@ -14,6 +14,7 @@ const store = require('./store/emails.json');
 
 const inboxId = store.mailboxes.INBOX.threadIds;
 
+// email id map to email object
 const inboxList = inboxId.map((id) => {
   const emailObject = {};
   const email = store.messages[id];
@@ -28,6 +29,7 @@ const inboxList = inboxId.map((id) => {
   return emailObject;
 });
 
+// email object map to list item html
 const inboxHtmlList = inboxList.map((email) => {
   const li = `
       <li>
