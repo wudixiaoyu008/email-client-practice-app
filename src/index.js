@@ -58,6 +58,7 @@ function renderSidebar() {
   sidebarContents = `${sidebarContents + liHtml}</ul>`;
 
   const container = document.querySelector('.email-list-container');
+
   if (container != null) container.innerHTML = sidebarContents;
 }
 
