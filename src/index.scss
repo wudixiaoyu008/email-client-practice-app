@@ -1,6 +1,13 @@
 // Variables
 $gray: #ccc;
 $lightgray: #eee;
+$thread_list_bg: #F0F3F6;
+$thread_list_divider: #D9DEE3;
+$thread_list_divider_horizonal: #E1E5EA;
+$white: #ffffff;
+$thread_snippet: #8B939F;
+$thread_subject: #262A2D;
+$thread_sender: #626568;
 
 $system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
@@ -13,6 +20,8 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -20,45 +29,61 @@ body {
 }
 
 .wrapper {
-  padding: 0.5rem;
 }
 
 // Email client styles
 .email-client {
-  border: 1px solid $gray;
+  // border: 1px solid $gray;
   display: flex;
-  height: calc(100vh - 2rem);
+  height: 100vh;
 }
 
 .email-list-container {
-  border-right: 1px solid $gray;
-  flex: 1;
+  border-right: 1px solid $thread_list_divider;
+  flex: 2;
   overflow-y: scroll;
+  background: $thread_list_bg;
+  line-height: 1.3rem;
 }
 
 .email-show-container {
-  flex: 3;
+  flex: 5;
 }
 
 .email-header {
   margin: 0;
-  padding: 0.5rem;
+  padding: 1.2rem 1.2rem;
+  background: $thread_list_bg;
+  border-right: 1px solid $thread_list_divider;
+  border-bottom: 1px solid $thread_list_divider_horizonal;
+  position: absolute;
+  z-index: 999;
+  width: 28.57%;
+}
+.email-header2 {
+  margin: 0;
+  padding: 1.2rem 1.2rem;
+  background: $white;
+  border-bottom: 1px solid $thread_list_divider_horizonal;
+  position: absolute;
+  z-index: 999;
+  width: 71.4%;
 }
 
 .email-list {
   list-style-type: none;
-  margin: 0;
+  margin-top: 3rem;
   padding-left: 0;
 }
 
 .email-item {
   background: none;
   border: none;
-  border-bottom: 1px solid $lightgray;
+  border-bottom: 1px solid $thread_list_divider_horizonal;
   cursor: pointer;
   display: block;
   font: inherit;
-  padding: 0.8rem 0.5rem;
+  padding: 1.2rem 1.2rem;
   text-align: left;
   width: 100%;
 
@@ -67,13 +92,12 @@ body {
   }
 
   .email-subject {
-    font-weight: bold;
+    color: $thread_subject;
   }
   .email-snippet {
-    color: inherit;
-    opacity: 0.7;
-    
+    color: $thread_snippet;
     font-size: 0.9rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -81,6 +105,8 @@ body {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  color: $thread_sender;
+  font-size: 0.9rem;
   span {
     font-size: 0.8rem;
     opacity: 0.7;

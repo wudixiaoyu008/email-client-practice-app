@@ -47,15 +47,16 @@ const inboxHtmlList = inboxList.map((email) => {
 
 
 function renderSidebar() {
-  let sidebarContents = `
-      <h2 class="email-header">Inbox</h2><ul class="email-list">`;
-
   let liHtml = '';
   for (const item of inboxHtmlList) {
     liHtml += item;
   }
 
-  sidebarContents = `${sidebarContents + liHtml}</ul>`;
+  let sidebarContents = `
+      <h2 class="email-header">Inbox</h2>
+      <ul class="email-list">
+        ${liHtml}
+      </ul>`;
 
   const container = document.querySelector('.email-list-container');
 
