@@ -9,11 +9,38 @@
   <body>
     <div class="wrapper">
       <div class="email-client">
-        <aside class="email-list-container">
+
+        <aside class="mailbox">
+          <h2 class="email-header0">Mailboxes</h2>
+          <nav>
+            <ul class="mailbox-list">
+              <li class="mailbox-item active">Inbox</li>
+              <li class="mailbox-item">Personal</li>
+              <li class="mailbox-item">Important</li>
+              <li class="mailbox-item">Unread</li>
+              <li class="mailbox-item">Sent</li>
+              <li class="mailbox-item">Updates</li>
+            </ul>
+          </nav>
+        </aside>
+        <main class="content">
+          <section class="email-list-container">
+            <h2 class="email-header">Threads</h2>
+            <ul class="email-list"></ul>
+          </section>
+          <article class="email-show-container">
+            <h2 class="email-header2">Messages</h2>
+          </article>
+        </main>
+
+
+        <!-- <aside class="email-list-container">
+          <h2 class="email-header">Threads</h2>
+          <ul class="email-list"></ul>
         </aside>
         <main class="email-show-container">
-          <h2 class="email-header">Selected email</h2>
-        </main>
+          <h2 class="email-header2">Messages</h2>
+        </main> -->
       </div>
     </div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>

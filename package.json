@@ -25,6 +25,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "base64-js": "^1.2.1",
+    "date-fns": "^1.29.0",
     "text-encoder-lite": "^1.0.1"
   },
   "devDependencies": {
