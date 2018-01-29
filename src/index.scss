@@ -1,13 +1,18 @@
 // Variables
-$gray: #ccc;
-$lightgray: #eee;
-$thread_list_bg: #F0F3F6;
-$thread_list_divider: #D9DEE3;
-$thread_list_divider_horizonal: #E1E5EA;
+$gray_bg: #F0F3F6;
+$dark_gray_bg: #263238;
+$dark_gray_bg_hover: #121B1F;
+$gray_bg_hover: #E2E8ED;
+$divider: #D9DEE3;
+$divider_horizonal: #E1E5EA;
 $white: #ffffff;
 $thread_snippet: #8B939F;
 $thread_subject: #262A2D;
 $thread_sender: #626568;
+
+$body_size: 0.9rem;
+$snippet_size: 0.8rem;
+$opacity: 0.7;
 
 $system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
@@ -37,12 +42,58 @@ body {
   display: flex;
   height: 100vh;
 }
+.mailbox {
+  flex: 1;
+  line-height: 1.3rem;
+  background: $dark_gray_bg;
+  color: $white;
+  border-right: 1px solid $divider;
+
+  .email-header0 {
+    margin: 0;
+    padding: 1.2rem 1.2rem;
+    font-size: $body_size;
+    font-weight: 400;
+    text-transform: uppercase;
+    background: $dark_gray_bg;
+    border-bottom: 1px solid #5d5d5d;
+    position: absolute;
+    z-index: 999;
+    width: 16.67%;
+  }
+
+  .mailbox-list {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.7rem;
+    text-decoration: none;
+    .mailbox-item {
+      list-style: none;
+      padding: 1rem 1.2rem;
+      font-size: $snippet_size;
+      opacity: $opacity;
+      &:hover {
+        background: $dark_gray_bg_hover;
+      }
+    }
+    .active {
+      opacity: 1;
+      border-left: 6px solid $divider_horizonal;
+      font-size: $body_size;
+    }
+  }
+}
+.content {
+  flex: 5;
+  display: flex;
+}
 
 .email-list-container {
-  border-right: 1px solid $thread_list_divider;
-  flex: 2;
+  border-right: 1px solid $divider;
+  flex: 3;
   overflow-y: scroll;
-  background: $thread_list_bg;
+  background: $gray_bg;
   line-height: 1.3rem;
 }
 
@@ -54,21 +105,27 @@ body {
 .email-header {
   margin: 0;
   padding: 1.2rem 1.2rem;
-  background: $thread_list_bg;
-  border-right: 1px solid $thread_list_divider;
-  border-bottom: 1px solid $thread_list_divider_horizonal;
+  font-size: $body_size;
+  font-weight: 400;
+  text-transform: uppercase;
+  background: $gray_bg;
+  border-right: 1px solid $divider;
+  border-bottom: 1px solid $divider_horizonal;
   position: absolute;
   z-index: 999;
-  width: 28.57%;
+  width: 31.2%;
 }
 .email-header2 {
   margin: 0;
   padding: 1.2rem 1.2rem;
+  font-size: $body_size;
+  font-weight: 400;
+  text-transform: uppercase;
   background: $white;
-  border-bottom: 1px solid $thread_list_divider_horizonal;
+  border-bottom: 1px solid $divider_horizonal;
   position: absolute;
   z-index: 999;
-  width: 71.4%;
+  width: 52%;
 }
 
 .email-list {
@@ -80,7 +137,7 @@ body {
 .email-item {
   background: none;
   border: none;
-  border-bottom: 1px solid $thread_list_divider_horizonal;
+  border-bottom: 1px solid $divider_horizonal;
   cursor: pointer;
   display: block;
   font: inherit;
@@ -94,11 +151,16 @@ body {
 
   .email-subject {
     color: $thread_subject;
+    font-size: $body_size;
   }
   .email-snippet {
     color: $thread_snippet;
-    font-size: 0.9rem;
+    font-size: $snippet_size;
     margin-top: 0.5rem;
+  }
+
+  &:hover {
+    background: $gray_bg_hover;
   }
 }
 
@@ -107,9 +169,8 @@ body {
   display: flex;
   justify-content: space-between;
   color: $thread_sender;
-  font-size: 0.9rem;
+  font-size: $snippet_size;
   span {
-    font-size: 0.8rem;
     opacity: 0.7;
   }
 }
