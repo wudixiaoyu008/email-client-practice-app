@@ -3,6 +3,7 @@
  */
 const store = require('./store/emails.json');
 
+// render mailbox & threads
 function formatMailbox(mailbox) {
   const category = mailbox.replace(/.+_/, '');
   const lowerCase = [...category].map((letter, index) => index === 0 ?
@@ -87,3 +88,10 @@ function renderThreads() {
 
 renderMailbox();
 renderThreads();
+
+// click mailbox to switch
+function switchMailbox() {
+  
+}
+
+switchMailbox();
