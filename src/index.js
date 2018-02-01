@@ -3,6 +3,7 @@
  */
 const store = require('./store/emails.json');
 
+// try push to task2 branch
 // render mailbox & threads
 function formatMailbox(mailbox) {
   const category = mailbox.replace(/.+_/, '');
@@ -91,7 +92,7 @@ renderThreads();
 
 // click mailbox to switch
 function switchMailbox() {
-  
+
 }
 
 switchMailbox();
