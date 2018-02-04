@@ -3,7 +3,6 @@
  */
 const store = require('./store/emails.json');
 
-// try push to task2 branch
 // render mailbox & threads
 function formatMailbox(mailbox) {
   const category = mailbox.replace(/.+_/, '');
@@ -17,9 +16,9 @@ function renderMailbox() {
   const mailboxHTML = mailboxes.map((mailbox, index) => {
     const category = formatMailbox(mailbox);
     return index === 0 ? `
-        <li class="mailbox-item active">${category}</li>
+        <li class="mailbox-item active" id="${mailbox}">${category}</li>
       ` : `
-        <li class="mailbox-item">${category}</li>
+        <li class="mailbox-item" id="${mailbox}">${category}</li>
       `;
   });
   const mailboxList = mailboxHTML.join('');
@@ -51,8 +50,9 @@ function getLastMessage(thread) {
   return store.messages[lastMessage.id];
 }
 
-function renderThreads() {
-  const inboxId = store.mailboxes.INBOX.threadIds;
+// by default render the INBOX mailbox's threads
+function renderThreads(mailbox = 'INBOX') {
+  const inboxId = store.mailboxes[mailbox].threadIds;
 
   // email id map to email object
   const inboxList = inboxId.map((id) => {
@@ -90,9 +90,20 @@ function renderThreads() {
 renderMailbox();
 renderThreads();
 
-// click mailbox to switch
-function switchMailbox() {
-
+// adjust the active class of mailbox list
+function adjustMailboxList(eventTarget) {
+  const mailbox = eventTarget.id;
+  const activeMailbox = document.querySelector('.active');
+  activeMailbox.classList.remove('active');
+  eventTarget.classList.add('active');
+  renderThreads(mailbox);
 }
 
-switchMailbox();
+// add event listener
+function addEventListenerMailbox() {
+  const mailboxList = document.querySelectorAll('.mailbox-item');
+  mailboxList.forEach(li =>
+    li.addEventListener('click', e => adjustMailboxList(e.target)));
+}
+
+addEventListenerMailbox();
